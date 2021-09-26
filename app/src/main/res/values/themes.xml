@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MovieShow" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.XsisMovieShow" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ThemeMovieShow" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="ThemeXsisMovieShow" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -29,6 +29,6 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorSecondary">@android:color/white</item>
         <item name="android:editTextColor">@android:color/white</item>
-        <item name="android:textColorHint">@color/colorGrey</item>
+        <item name="android:textColorHint">@color/colorSemiBlack</item>
     </style>
 </resources>
