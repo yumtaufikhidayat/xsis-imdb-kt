@@ -1,6 +1,7 @@
 package com.taufik.xsismovieshow.ui.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 
+            showTitle(true)
             with(rvTop10Movies) {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
                 adapter = moviesAdapter
@@ -54,6 +56,19 @@ class MainActivity : AppCompatActivity() {
                     exploreMoviesAdapter.setMovies(it)
                 }
             })
+        }
+    }
+
+    private fun showTitle(state: Boolean) {
+
+        binding.apply {
+            if (state) {
+                tvTop10Movies.visibility = View.VISIBLE
+                tvExploreMovies.visibility = View.VISIBLE
+            } else {
+                tvTop10Movies.visibility = View.GONE
+                tvExploreMovies.visibility = View.GONE
+            }
         }
     }
 }
