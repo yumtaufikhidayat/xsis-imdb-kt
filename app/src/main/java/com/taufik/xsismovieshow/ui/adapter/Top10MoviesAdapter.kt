@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.taufik.xsismovieshow.data.model.MovieItem
-import com.taufik.xsismovieshow.databinding.ItemMoviesBinding
+import com.taufik.xsismovieshow.databinding.ItemTop10MoviesBinding
 
-class Top10MoviesAdapter() : RecyclerView.Adapter<Top10MoviesAdapter.MovieViewHolder>() {
+class Top10MoviesAdapter : RecyclerView.Adapter<Top10MoviesAdapter.MovieViewHolder>() {
 
     private val listMovies = ArrayList<MovieItem>()
 
@@ -18,7 +18,7 @@ class Top10MoviesAdapter() : RecyclerView.Adapter<Top10MoviesAdapter.MovieViewHo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val view = ItemMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemTop10MoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieViewHolder(view)
     }
 
@@ -35,7 +35,7 @@ class Top10MoviesAdapter() : RecyclerView.Adapter<Top10MoviesAdapter.MovieViewHo
         return listMovies.size
     }
 
-    inner class MovieViewHolder(private val binding: ItemMoviesBinding) :
+    inner class MovieViewHolder(private val binding: ItemTop10MoviesBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movieItem: MovieItem) {

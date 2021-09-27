@@ -7,7 +7,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class MovieItem(
-    val titleText: String = "",
     @SerializedName("id")
     val id: String = "",
     @SerializedName("rank")

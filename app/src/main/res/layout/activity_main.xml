@@ -42,13 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                android:id="@+id/viewMovie"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
-                app:layout_constraintTop_toTopOf="parent"/>
-
             <TextView
                 android:id="@+id/tvTop10Movies"
                 android:layout_width="wrap_content"
@@ -58,17 +51,29 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintTop_toBottomOf="@id/viewMovie"
-                app:layout_constraintStart_toStartOf="@id/viewMovie"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/rvTop10Movies"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTop10Movies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                tools:listitem="@layout/item_movies"
+                tools:listitem="@layout/item_top_10_movies"
                 tools:itemCount="1"
                 app:layout_constraintTop_toBottomOf="@id/tvTop10Movies"/>
+
+            <TextView
+                android:id="@+id/tvExploreMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/tvExploreMovies"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintTop_toBottomOf="@id/rvTop10Movies"
+                app:layout_constraintStart_toStartOf="@id/rvTop10Movies"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvExploreMovies"
@@ -77,7 +82,7 @@
                 android:layout_margin="10dp"
                 tools:listitem="@layout/item_explore_movies"
                 tools:itemCount="1"
-                app:layout_constraintTop_toBottomOf="@id/rvTop10Movies"/>
+                app:layout_constraintTop_toBottomOf="@id/tvExploreMovies"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

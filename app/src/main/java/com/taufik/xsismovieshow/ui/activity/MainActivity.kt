@@ -3,6 +3,7 @@ package com.taufik.xsismovieshow.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.taufik.xsismovieshow.data.api.UrlEndpoint
 import com.taufik.xsismovieshow.data.viewmodel.XsisMovieShowViewModel
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private fun setMoviesData() {
 
         moviesAdapter = Top10MoviesAdapter()
-        exploreMoviesAdapter = ExploreMoviesAdapter(this)
+        exploreMoviesAdapter = ExploreMoviesAdapter()
 
         with(binding.rvTop10Movies) {
             layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         with(binding.rvExploreMovies) {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = GridLayoutManager(this@MainActivity, 2)
             adapter = exploreMoviesAdapter
         }
 

@@ -1,17 +1,15 @@
 package com.taufik.xsismovieshow.ui.adapter
 
-import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.taufik.xsismovieshow.data.model.MovieItem
 import com.taufik.xsismovieshow.databinding.ItemExploreMoviesBinding
 
 
-class ExploreMoviesAdapter(
-    private val context: Context
-) : RecyclerView.Adapter<ExploreMoviesAdapter.MovieViewHolder>(){
+class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieViewHolder>(){
 
     private val listMovies = ArrayList<MovieItem>()
 
@@ -27,7 +25,23 @@ class ExploreMoviesAdapter(
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(listMovies[position])
+
+        val oddPos = position % 2
+
+        val rank = listMovies[position].rank.toInt()
+        Log.e(TAG, "onBindViewHolder: $rank")
+
+        if (oddPos == 1) {
+            
+        }
+
+//        if (oddPos == 1) {
+//            for (i in oddPos until listMovies.size) {
+//                holder.bind(listMovies[position])
+//            }
+//        } else {
+//            holder.bind(listMovies[position])
+//        }
     }
 
     override fun getItemCount(): Int = listMovies.size
@@ -37,27 +51,18 @@ class ExploreMoviesAdapter(
 
         fun bind(movieItem: MovieItem) {
             binding.apply {
-                val rank = movieItem.rank.toInt()
-                for (i in rank until listMovies.size) {
-                    if (i % 2 == 0) {
-                        setMovieRightCategory(rvItemMoviesRight, listMovies)
-                    } else {
-                        setMovieLeftCategory(rvItemMoviesLeft, listMovies)
-                    }
-                }
+                Glide.with(itemView.context)
+                    .load(movieItem.image)
+                    .into(imgPoster)
+
+                tvTitle.text = movieItem.title
+                tvYear.text = movieItem.year
+                tvRating.text = movieItem.imDbRating
             }
         }
     }
 
-    private fun setMovieLeftCategory(recyclerView: RecyclerView, movieLeft: List<MovieItem>) {
-        val horizontalAdapter = MoviesLeftAdapter(movieLeft)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = horizontalAdapter
-    }
-
-    private fun setMovieRightCategory(recyclerView: RecyclerView, movieRight: List<MovieItem>) {
-        val verticalAdapter = MoviesRightAdapter(movieRight)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = verticalAdapter
+    companion object {
+        const val TAG = "EXPLORE_MOVIES"
     }
 }
