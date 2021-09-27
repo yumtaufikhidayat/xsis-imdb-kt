@@ -1,12 +1,15 @@
 package com.taufik.xsismovieshow.ui.adapter
 
-import android.util.Log
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.taufik.xsismovieshow.R
 import com.taufik.xsismovieshow.data.model.MovieItem
 import com.taufik.xsismovieshow.databinding.ItemExploreMoviesBinding
+import com.taufik.xsismovieshow.ui.activity.DetailActivity
 
 
 class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieViewHolder>(){
@@ -25,18 +28,7 @@ class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieView
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val rank = listMovies[position].rank.toInt()
-        Log.e(TAG, "onBindViewHolder: $rank")
-
         holder.bind(listMovies[position])
-
-//        if (oddPos == 1) {
-//            for (i in oddPos until listMovies.size) {
-//                holder.bind(listMovies[position])
-//            }
-//        } else {
-//            holder.bind(listMovies[position])
-//        }
     }
 
     override fun getItemCount(): Int = listMovies.size
@@ -48,16 +40,23 @@ class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieView
             binding.apply {
                 Glide.with(itemView.context)
                     .load(movieItem.image)
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                            .error(R.drawable.ic_error)
+                    )
                     .into(imgPoster)
 
                 tvTitle.text = movieItem.title
                 tvYear.text = String.format("(" + movieItem.year + ")")
                 tvRating.text = movieItem.imDbRating
+
+                cardPoster.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailActivity::class.java).apply {
+                        putExtra(DetailActivity.EXTRA_DETAIL, movieItem)
+                    }
+                    it.context.startActivity(intent)
+                }
             }
         }
-    }
-
-    companion object {
-        const val TAG = "EXPLORE_MOVIES"
     }
 }

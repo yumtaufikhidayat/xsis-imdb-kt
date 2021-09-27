@@ -1,11 +1,15 @@
 package com.taufik.xsismovieshow.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.taufik.xsismovieshow.R
 import com.taufik.xsismovieshow.data.model.MovieItem
 import com.taufik.xsismovieshow.databinding.ItemTop10MoviesBinding
+import com.taufik.xsismovieshow.ui.activity.DetailActivity
 
 class Top10MoviesAdapter : RecyclerView.Adapter<Top10MoviesAdapter.MovieViewHolder>() {
 
@@ -42,11 +46,22 @@ class Top10MoviesAdapter : RecyclerView.Adapter<Top10MoviesAdapter.MovieViewHold
             binding.apply {
                 Glide.with(itemView.context)
                     .load(movieItem.image)
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                            .error(R.drawable.ic_error)
+                    )
                     .into(imgPoster)
 
                 tvRating.text = movieItem.imDbRating
                 tvTitle.text = movieItem.title
                 tvYear.text = String.format("(" + movieItem.year + ")")
+
+                cardPoster.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailActivity::class.java).apply {
+                        putExtra(DetailActivity.EXTRA_DETAIL, movieItem)
+                    }
+                    it.context.startActivity(intent)
+                }
             }
         }
     }
