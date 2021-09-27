@@ -4,14 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/background_movie.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/background_movie_show.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/drawable/ic_star.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/fragment_movie.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_explore_movies.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_movies.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_movies_explore.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/item_movies_left.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/item_movies_right.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/item_odd_movies.xml" value="0.1828125" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/taufik/xsismovieshow/ui/adapter/MoviesParentHolder.kt" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

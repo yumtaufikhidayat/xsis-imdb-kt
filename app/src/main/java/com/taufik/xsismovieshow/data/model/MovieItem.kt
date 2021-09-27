@@ -7,22 +7,23 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class MovieItem(
+    val titleText: String = "",
     @SerializedName("id")
-    val id: String,
+    val id: String = "",
     @SerializedName("rank")
-    val rank: String,
+    val rank: String = "",
     @SerializedName("title")
-    val title: String,
+    val title: String = "",
     @SerializedName("fullTitle")
-    val fullTitle: String,
+    val fullTitle: String = "",
     @SerializedName("year")
-    val year: String,
+    val year: String = "",
     @SerializedName("image")
-    val image: String,
+    val image: String = "",
     @SerializedName("crew")
-    val crew: String,
+    val crew: String = "",
     @SerializedName("imDbRating")
-    val imDbRating: String,
+    val imDbRating: String = "",
     @SerializedName("imDbRatingCount")
-    val imDbRatingCount: String
+    val imDbRatingCount: String = ""
 ): Parcelable

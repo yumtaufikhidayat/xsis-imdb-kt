@@ -23,7 +23,9 @@ class Top10MoviesAdapter() : RecyclerView.Adapter<Top10MoviesAdapter.MovieViewHo
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(listMovies[position])
+
+        val pos = listMovies[position]
+        holder.bind(pos)
     }
 
     override fun getItemCount(): Int {

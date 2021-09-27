@@ -4,5 +4,9 @@
     <string name="tvStreamMovies">Stream Movies</string>
     <string name="tvAnywhere">Anywhere</string>
     <string name="tvTop10Movies">Top 10 Movies</string>
-    <string name="tvRating">8.0</string>
+    <string name="tvExploreMovies">Explore Movies</string>
+    <string name="tvTitle">Title</string>
+    <string name="tvRating">Rating</string>
+    <string name="tvReleaseDate">Release Date</string>
+    <string name="tvReleasedOn">Released on:</string>
 </resources>
