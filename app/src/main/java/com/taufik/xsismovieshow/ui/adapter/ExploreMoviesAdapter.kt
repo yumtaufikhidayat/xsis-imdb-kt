@@ -32,7 +32,9 @@ class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieView
         Log.e(TAG, "onBindViewHolder: $rank")
 
         if (oddPos == 1) {
-            
+            // left
+        } else {
+            //right
         }
 
 //        if (oddPos == 1) {
