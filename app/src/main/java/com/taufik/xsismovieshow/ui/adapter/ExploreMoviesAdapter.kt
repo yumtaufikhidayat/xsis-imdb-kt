@@ -28,6 +28,14 @@ class ExploreMoviesAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(listMovies[position])
+//        val posEven = position % 2
+//        holder.binding.apply {
+//            if (posEven == 1) {
+//                setMovieLeftCategory(rvItemMoviesLeft, listMovies)
+//            } else {
+//                setMovieRightCategory(rvItemMoviesRight, listMovies)
+//            }
+//        }
     }
 
     override fun getItemCount(): Int = listMovies.size
