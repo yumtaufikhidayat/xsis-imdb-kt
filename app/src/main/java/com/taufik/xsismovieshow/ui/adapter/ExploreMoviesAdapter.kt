@@ -51,7 +51,7 @@ class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieView
                     .into(imgPoster)
 
                 tvTitle.text = movieItem.title
-                tvYear.text = movieItem.year
+                tvYear.text = String.format("(" + movieItem.year + ")")
                 tvRating.text = movieItem.imDbRating
             }
         }
