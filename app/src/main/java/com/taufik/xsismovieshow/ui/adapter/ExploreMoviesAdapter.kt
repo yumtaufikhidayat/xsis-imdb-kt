@@ -25,17 +25,10 @@ class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieView
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-
-        val oddPos = position % 2
-
         val rank = listMovies[position].rank.toInt()
         Log.e(TAG, "onBindViewHolder: $rank")
 
-        if (oddPos == 1) {
-            // left
-        } else {
-            //right
-        }
+        holder.bind(listMovies[position])
 
 //        if (oddPos == 1) {
 //            for (i in oddPos until listMovies.size) {

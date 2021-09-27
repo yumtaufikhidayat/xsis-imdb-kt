@@ -31,23 +31,29 @@ class MainActivity : AppCompatActivity() {
         moviesAdapter = Top10MoviesAdapter()
         exploreMoviesAdapter = ExploreMoviesAdapter()
 
-        with(binding.rvTop10Movies) {
-            layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = moviesAdapter
-        }
+        binding.apply {
 
-        with(binding.rvExploreMovies) {
-            layoutManager = GridLayoutManager(this@MainActivity, 2)
-            adapter = exploreMoviesAdapter
-        }
-
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[XsisMovieShowViewModel::class.java]
-        viewModel.setMovies(UrlEndpoint.API_KEY)
-        viewModel.getAllMovies().observe(this, {
-            if (it != null) {
-                moviesAdapter.setMovies(it)
-                exploreMoviesAdapter.setMovies(it)
+            with(rvTop10Movies) {
+                layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+                adapter = moviesAdapter
             }
-        })
+
+            with(rvExploreMovies) {
+                layoutManager = GridLayoutManager(this@MainActivity, 2)
+                adapter = exploreMoviesAdapter
+            }
+
+            viewModel = ViewModelProvider(
+                this@MainActivity,
+                ViewModelProvider.NewInstanceFactory()
+            )[XsisMovieShowViewModel::class.java]
+            viewModel.setMovies(UrlEndpoint.API_KEY)
+            viewModel.getAllMovies().observe(this@MainActivity, {
+                if (it != null) {
+                    moviesAdapter.setMovies(it)
+                    exploreMoviesAdapter.setMovies(it)
+                }
+            })
+        }
     }
 }
