@@ -41,8 +41,10 @@ class ExploreMoviesAdapter : RecyclerView.Adapter<ExploreMoviesAdapter.MovieView
                 Glide.with(itemView.context)
                     .load(movieItem.image)
                     .apply(
-                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                        RequestOptions
+                            .placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
+                            .dontTransform()
                     )
                     .into(imgPoster)
 
