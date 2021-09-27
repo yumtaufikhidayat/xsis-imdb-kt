@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 
-            showTitle(true)
+            showTitle(false)
             with(rvTop10Movies) {
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
                 adapter = moviesAdapter
@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             viewModel.setMovies(UrlEndpoint.API_KEY)
             viewModel.getAllMovies().observe(this@MainActivity, {
                 if (it != null) {
+                    showTitle(true)
                     moviesAdapter.setMovies(it)
                     exploreMoviesAdapter.setMovies(it)
                 }
